@@ -1,0 +1,139 @@
+.cwm-copy-automations-widget {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.cwm-copy-automations-widget .panel-heading {
+  background-color: #293e40;
+  color: #fff;
+}
+
+.cwm-copy-automations-widget .panel-title {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.cwm-copy-automations-widget .help-text {
+  color: #666;
+  margin-bottom: 20px;
+  font-size: 13px;
+}
+
+.cwm-copy-automations-widget .form-group {
+  margin-bottom: 16px;
+}
+
+.cwm-copy-automations-widget label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.cwm-copy-automations-widget .form-control {
+  height: 40px;
+  border-radius: 4px;
+}
+
+.cwm-copy-automations-widget .button-group {
+  margin-top: 20px;
+  margin-bottom: 16px;
+}
+
+.cwm-copy-automations-widget .button-group .btn {
+  margin-right: 8px;
+}
+
+.cwm-copy-automations-widget .result-alert {
+  margin-top: 16px;
+}
+
+.cwm-copy-automations-widget .result-alert i {
+  margin-right: 6px;
+}
+
+.cwm-copy-automations-widget .overwrite-option {
+  margin-top: 8px;
+  margin-bottom: 16px;
+}
+
+.cwm-copy-automations-widget .overwrite-warning {
+  color: #c9302c;
+  font-size: 12px;
+  margin-top: 4px;
+  margin-bottom: 0;
+}
+
+.cwm-copy-automations-widget .automation-list {
+  margin-top: 8px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  background: #fafafa;
+}
+
+.cwm-copy-automations-widget .automation-list-header {
+  padding: 8px 12px;
+  border-bottom: 1px solid #e0e0e0;
+  background: #f5f5f5;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cwm-copy-automations-widget .automation-list-title {
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  color: #555;
+}
+
+.cwm-copy-automations-widget .automation-empty {
+  padding: 12px;
+  color: #999;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.cwm-copy-automations-widget .automation-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.cwm-copy-automations-widget .automation-items li {
+  padding: 8px 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cwm-copy-automations-widget .automation-items li:last-child {
+  border-bottom: none;
+}
+
+.cwm-copy-automations-widget .automation-items li.inactive {
+  opacity: 0.5;
+}
+
+.cwm-copy-automations-widget .automation-items li .fa-bolt {
+  color: #f0ad4e;
+}
+
+.cwm-copy-automations-widget .automation-items li .fa-bell {
+  color: #5bc0de;
+}
+
+.cwm-copy-automations-widget .automation-items li .fa-envelope {
+  color: #5cb85c;
+}
+
+.cwm-copy-automations-widget .automation-summary {
+  flex: 1;
+}
+
+.cwm-copy-automations-widget .badge {
+  background-color: #293e40;
+}

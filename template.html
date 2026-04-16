@@ -1,0 +1,128 @@
+<div class="cwm-copy-automations-widget">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Copy Board Automations</h3>
+    </div>
+    <div class="panel-body">
+      <p class="help-text">
+        Copy automations from a source board to a destination board.
+        If the destination board has existing automations, enable overwrite to replace them.
+      </p>
+
+      <!-- Source Board -->
+      <div class="form-group">
+        <label for="sourceBoard">Source Board</label>
+        <select id="sourceBoard"
+                class="form-control"
+                ng-model="c.sourceBoardId"
+                ng-disabled="c.loading">
+          <option value="">-- Select source board --</option>
+          <option ng-repeat="board in c.getSourceBoards()"
+                  value="{{board.sys_id}}">
+            {{board.name}} <span ng-if="board.space_name">({{board.space_name}})</span>
+          </option>
+        </select>
+
+        <!-- Source Automations List -->
+        <div class="automation-list" ng-if="c.sourceBoardId">
+          <div class="automation-list-header">
+            <span class="automation-list-title">Automations</span>
+            <span class="badge" ng-if="!c.loadingSource">{{c.sourceAutomations.length}}</span>
+            <i class="fa fa-spinner fa-spin" ng-if="c.loadingSource"></i>
+          </div>
+          <div ng-if="!c.loadingSource && c.sourceAutomations.length === 0" class="automation-empty">
+            No automations on this board.
+          </div>
+          <ul class="automation-items" ng-if="!c.loadingSource && c.sourceAutomations.length > 0">
+            <li ng-repeat="auto in c.sourceAutomations"
+                ng-class="{'inactive': !auto.active}">
+              <i class="fa"
+                 ng-class="{'fa-bolt': auto.type === 'update', 'fa-bell': auto.type === 'notify' || auto.type === 'date_based_notify', 'fa-envelope': auto.type === 'email' || auto.type === 'date_based_email'}">
+              </i>
+              <span class="automation-summary">{{auto.summary}}</span>
+              <span class="label label-default" ng-if="!auto.active">Inactive</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Destination Board -->
+      <div class="form-group">
+        <label for="destBoard">Destination Board</label>
+        <select id="destBoard"
+                class="form-control"
+                ng-model="c.destBoardId"
+                ng-disabled="c.loading">
+          <option value="">-- Select destination board --</option>
+          <option ng-repeat="board in c.getDestBoards()"
+                  value="{{board.sys_id}}">
+            {{board.name}} <span ng-if="board.space_name">({{board.space_name}})</span>
+          </option>
+        </select>
+
+        <!-- Destination Automations List -->
+        <div class="automation-list" ng-if="c.destBoardId">
+          <div class="automation-list-header">
+            <span class="automation-list-title">Automations</span>
+            <span class="badge" ng-if="!c.loadingDest">{{c.destAutomations.length}}</span>
+            <i class="fa fa-spinner fa-spin" ng-if="c.loadingDest"></i>
+          </div>
+          <div ng-if="!c.loadingDest && c.destAutomations.length === 0" class="automation-empty">
+            No automations on this board.
+          </div>
+          <ul class="automation-items" ng-if="!c.loadingDest && c.destAutomations.length > 0">
+            <li ng-repeat="auto in c.destAutomations"
+                ng-class="{'inactive': !auto.active}">
+              <i class="fa"
+                 ng-class="{'fa-bolt': auto.type === 'update', 'fa-bell': auto.type === 'notify' || auto.type === 'date_based_notify', 'fa-envelope': auto.type === 'email' || auto.type === 'date_based_email'}">
+              </i>
+              <span class="automation-summary">{{auto.summary}}</span>
+              <span class="label label-default" ng-if="!auto.active">Inactive</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Overwrite Option -->
+      <div class="checkbox overwrite-option">
+        <label>
+          <input type="checkbox"
+                 ng-model="c.overwrite"
+                 ng-disabled="c.loading">
+          Overwrite existing automations on destination
+        </label>
+        <p class="overwrite-warning" ng-if="c.overwrite">
+          <i class="fa fa-exclamation-triangle"></i>
+          All existing automations on the destination board will be removed before copying.
+        </p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="button-group">
+        <button class="btn btn-primary"
+                ng-click="c.copyAutomations()"
+                ng-disabled="c.loading || !c.sourceBoardId || !c.destBoardId">
+          <span ng-if="!c.loading">Copy Automations</span>
+          <span ng-if="c.loading">
+            <i class="fa fa-spinner fa-spin"></i> Copying...
+          </span>
+        </button>
+        <button class="btn btn-default"
+                ng-click="c.reset()"
+                ng-disabled="c.loading">
+          Reset
+        </button>
+      </div>
+
+      <!-- Result Message -->
+      <div ng-if="c.result" class="alert result-alert"
+           ng-class="{'alert-success': c.result.status === 'success', 'alert-danger': c.result.status === 'error'}"
+           role="alert">
+        <i class="fa"
+           ng-class="{'fa-check-circle': c.result.status === 'success', 'fa-exclamation-circle': c.result.status === 'error'}">
+        </i>
+        {{c.result.message}}
+      </div>
+    </div>
+  </div>
+</div>
