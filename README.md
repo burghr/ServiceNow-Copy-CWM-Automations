@@ -4,16 +4,16 @@ A ServiceNow widget that copies automation rules from one CWM board to another.
 
 ## Features
 
-- **Board selection** -- dropdown lists of all accessible CWM boards with space names
-- **Automation preview** -- shows all automations on each board with human-readable descriptions
-- **Bulk copy** -- copies all active automations from source to destination in one click
-- **Overwrite mode** -- optional toggle to delete existing automations on the destination board before copying
+- **Board selection** - dropdown lists of all accessible CWM boards with space names
+- **Automation preview** - shows all automations on each board with human-readable descriptions
+- **Bulk copy** - copies all active automations from source to destination in one click
+- **Overwrite mode** - optional toggle to delete existing automations on the destination board before copying
 - **Automation types supported:**
   - Update automations ("When [field] changes to [value], set [field] to [value]")
   - Notification automations ("When [field] changes, send notification")
   - Email automations ("When [field] changes, send email")
   - Date-based automations ("When [date] arrives, send notification/email")
-- **Results summary** -- shows count of copied and removed automations with success/error messages
+- **Results summary** - shows count of copied and removed automations with success/error messages
 
 ## Installation
 
@@ -28,13 +28,13 @@ A ServiceNow widget that copies automation rules from one CWM board to another.
 4. Optionally check **Overwrite** to remove existing automations on the destination first
 5. Click **Copy Automations**
 
-**Warning:** The overwrite option is destructive -- it deletes all existing automations on the destination board before copying. Use with caution.
+**Warning:** The overwrite option is destructive - it deletes all existing automations on the destination board before copying. Use with caution.
 
 ## Files
 
 | File | Purpose |
 |---|---|
-| `client.js` | AngularJS controller -- handles board selection, copy actions, UI state |
+| `client.js` | AngularJS controller - handles board selection, copy actions, UI state |
 | `server.js` | GlideRecord queries to fetch boards/automations and perform the copy |
 | `template.html` | Widget HTML template with form layout and automation lists |
 | `style.css` | Styling for the form, automation cards, and status indicators |
@@ -48,7 +48,7 @@ A ServiceNow widget that copies automation rules from one CWM board to another.
 ## Limitations
 
 - Only copies **active**, non-corrupted automations
-- Copies automation configuration only (trigger, update, notification settings) -- does not copy related records
+- Copies automation configuration only (trigger, update, notification settings) - does not copy related records
 - Users must have access to both source and destination boards
 
 ## Security
